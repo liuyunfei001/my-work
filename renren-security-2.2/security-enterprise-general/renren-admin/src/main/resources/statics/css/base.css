@@ -1,0 +1,55 @@
+.aui-page__login::before {
+  background-image: url(../img/login_bg.jpg);
+}
+
+.mod-sys__user .dept-list .el-input__inner,
+.mod-sys__user .dept-list .el-input__suffix {
+  cursor: pointer;
+}
+.mod-sys__user .role-list .el-select {
+  width: 100%;
+}
+
+.mod-sys__dept .dept-list .el-input__inner,
+.mod-sys__dept .dept-list .el-input__suffix {
+  cursor: pointer;
+}
+
+.mod-sys__menu .menu-list .el-input__inner,
+.mod-sys__menu .menu-list .el-input__suffix,
+.mod-sys__menu .icon-list .el-input__inner,
+.mod-sys__menu .icon-list .el-input__suffix {
+  cursor: pointer;
+}
+.mod-sys__menu-icon-popover {
+  width: 458px;
+  overflow: hidden;
+}
+.mod-sys__menu-icon-inner {
+  width: 478px;
+  max-height: 258px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.mod-sys__menu-icon-list {
+  width: 458px;
+  padding: 0;
+  margin: -8px 0 0 -8px;
+}
+.mod-sys__menu-icon-list > .el-button {
+  padding: 8px;
+  margin: 8px 0 0 8px;
+}
+.mod-sys__menu-icon-list > .el-button > span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.mod-job__schedule-view-info,
+.mod-sys__log-error-view-info {
+  width: 100%;
+  height: 100%;
+}

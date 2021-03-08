@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <#include "/header.html">
+</head>
+<body>
+<div v-cloak class="aui-wrapper aui-page__iframe">
+  <div class="aui-content__wrapper">
+    <div class="aui-content">
+      <el-card shadow="never" class="aui-card--fill">
+        <div class="mod-demo__vpceindex">
+          <el-form :inline="true" :model="dataForm" @keyup.enter.native="getDataList()">
+            <el-form-item>
+              <el-input v-model="dataForm.id" placeholder="id" clearable></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button @click="getDataList()">{{ $t('query') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="info" @click="exportHandle()">{{ $t('export') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button v-if="$hasPermission('demo:vpceindex:save')" type="primary" @click="addOrUpdateHandle()">{{ $t('add') }}</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button v-if="$hasPermission('demo:vpceindex:delete')" type="danger" @click="deleteHandle()">{{ $t('deleteBatch') }}</el-button>
+            </el-form-item>
+          </el-form>
+          <el-table v-loading="dataListLoading" :data="dataList" border @selection-change="dataListSelectionChangeHandle" style="width: 100%;">
+            <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
+            <el-table-column prop="id" label="主键id" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpId" label="所属用户主键" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="testDate" label="测试日期" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpWeight" label="测试体重" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpTzl" label="脂肪率" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpSf" label="水分比率" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpJrl" label="肌肉量" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpGlg" label="骨量钙" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpTx" label="体形" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpDxz" label="基础代谢" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpDxage" label="代谢年龄" header-align="center" align="center"></el-table-column>
+            <el-table-column prop="vpBmi" label="体重指数" header-align="center" align="center"></el-table-column>
+            <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
+              <template slot-scope="scope">
+                <el-button v-if="$hasPermission('demo:vpceindex:update')" type="text" size="small" @click="addOrUpdateHandle(scope.row.id)">{{ $t('update') }}</el-button>
+                <el-button v-if="$hasPermission('demo:vpceindex:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t('delete') }}</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <el-pagination
+            :current-page="page"
+            :page-sizes="[10, 20, 50, 100]"
+            :page-size="limit"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper"
+            @size-change="pageSizeChangeHandle"
+            @current-change="pageCurrentChangeHandle">
+          </el-pagination>
+          <!-- 弹窗, 新增 / 修改 -->
+          <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refresh-data-list="getDataList"></add-or-update>
+        </div>
+      </el-card>
+    </div>
+  </div>
+</div>
+<#include "/footer.html">
+<script src="${request.contextPath}/statics/js/modules/demo/vpceindex.js?_${.now?long}"></script>
+</body>
+</html>

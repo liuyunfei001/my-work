@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.demo.dao.VpCeIndexDao">
+
+    <resultMap type="io.renren.modules.demo.entity.VpCeIndexEntity" id="vpCeIndexMap">
+        <result property="id" column="ID"/>
+        <result property="vpId" column="vp_id"/>
+        <result property="testDate" column="testDate"/>
+        <result property="vpWeight" column="vp_weight"/>
+        <result property="vpTzl" column="vp_TZL"/>
+        <result property="vpSf" column="vp_SF"/>
+        <result property="vpJrl" column="vp_JRL"/>
+        <result property="vpGlg" column="vp_GLG"/>
+        <result property="vpTx" column="vp_TX"/>
+        <result property="vpDxz" column="vp_DXZ"/>
+        <result property="vpDxage" column="vp_DXAGE"/>
+        <result property="vpBmi" column="vp_BMI"/>
+        <result property="creator" column="creator"/>
+        <result property="createDate" column="createDate"/>
+    </resultMap>
+
+
+</mapper>

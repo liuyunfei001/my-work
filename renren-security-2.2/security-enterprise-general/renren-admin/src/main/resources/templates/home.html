@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="${request.contextPath}/statics/element-theme/turquoise/index.css">
+  <link rel="stylesheet" href="${request.contextPath}/statics/element-theme/turquoise/aui.css">
+  <link rel="stylesheet" href="${request.contextPath}/statics/css/base.css">
+  <script src="${request.contextPath}/statics/js/config.js"></script>
+</head>
+<body>
+  <div v-cloak class="aui-wrapper aui-page__iframe">
+    <div class="aui-content__wrapper">
+      <div class="aui-content">
+        <el-card shadow="never" class="aui-card--fill">
+          <div class="mod-home">
+            <el-row :gutter="20">
+              <el-col :span="12" :xs="24">
+                <table>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.name') }}</th>
+                    <td>{{ $t('home.sysInfo.nameVal') }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.version') }}</th>
+                    <td>{{ $t('home.sysInfo.versionVal') }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.osName') }}</th>
+                    <td>{{ sysInfo.osName }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.osVersion') }}</th>
+                    <td>{{ sysInfo.osVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.osArch') }}</th>
+                    <td>{{ sysInfo.osArch }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.processors') }}</th>
+                    <td>{{ sysInfo.processors }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.totalPhysical') }}</th>
+                    <td>{{ sysInfo.totalPhysical }}MB</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.freePhysical') }}</th>
+                    <td>{{ sysInfo.freePhysical }}MB</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.memoryRate') }}</th>
+                    <td>{{ sysInfo.memoryRate }}%</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.userLanguage') }}</th>
+                    <td>{{ sysInfo.userLanguage }}</td>
+                  </tr>
+                </table>
+              </el-col>
+              <el-col :span="12" :xs="24">
+                <table>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.jvmName') }}</th>
+                    <td>{{ sysInfo.jvmName }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.javaVersion') }}</th>
+                    <td>{{ sysInfo.javaVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.javaHome') }}</th>
+                    <td>{{ sysInfo.javaHome }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.userDir') }}</th>
+                    <td>{{ sysInfo.userDir }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.javaTotalMemory') }}</th>
+                    <td>{{ sysInfo.javaTotalMemory }}MB</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.javaFreeMemory') }}</th>
+                    <td>{{ sysInfo.javaFreeMemory }}MB</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.javaMaxMemory') }}</th>
+                    <td>{{ sysInfo.javaMaxMemory }}MB</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.userName') }}</th>
+                    <td>{{ sysInfo.userName }}</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.systemCpuLoad') }}</th>
+                    <td>{{ sysInfo.systemCpuLoad }}%</td>
+                  </tr>
+                  <tr>
+                    <th>{{ $t('home.sysInfo.userTimezone') }}</th>
+                    <td>{{ sysInfo.userTimezone }}</td>
+                  </tr>
+                </table>
+              </el-col>
+            </el-row>
+          </div>
+        </el-card>
+      </div>
+    </div>
+  </div>
+  <script src="${request.contextPath}/statics/plugins/vue-2.5.17/vue.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/index.js"></script>
+  <!-- 插件 -->
+  <script src="${request.contextPath}/statics/plugins/es6-promise-4.2.4/es6-promise.auto.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/axios-0.18.0/axios.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/js-cookie-2.2.0/js-cookie.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/lodash-4.17.10/lodash.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/qs-6.5.2/qs.min.js"></script>
+  <!-- 国际化 -->
+  <script src="${request.contextPath}/statics/plugins/vue-i18n-8.1.0/vue-i18n.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/zh-CN.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/zh-TW.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/en.js"></script>
+  <script src="${request.contextPath}/statics/i18n/zh-CN.js"></script>
+  <script src="${request.contextPath}/statics/i18n/zh-TW.js"></script>
+  <script src="${request.contextPath}/statics/i18n/en-US.js"></script>
+  <script src="${request.contextPath}/statics/i18n/index.js"></script>
+  <!-- 业务 -->
+  <script src="${request.contextPath}/statics/icons/iconfont.js"></script>
+  <script src="${request.contextPath}/statics/js/common.js"></script>
+  <script src="${request.contextPath}/statics/js/modules/home.js"></script>
+</body>
+</html>

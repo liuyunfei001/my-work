@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="${request.contextPath}/favicon.ico">
+  <link rel="stylesheet" href="${request.contextPath}/statics/element-theme/turquoise/index.css">
+  <link rel="stylesheet" href="${request.contextPath}/statics/element-theme/turquoise/aui.css">
+  <link rel="stylesheet" href="${request.contextPath}/statics/css/base.css">
+  <script src="${request.contextPath}/statics/js/config.js"></script>
+</head>
+<body>
+  <div v-cloak class="aui-wrapper aui-page__login">
+    <div class="aui-content__wrapper">
+      <main class="aui-content">
+        <div class="login-header">
+          <h2 class="login-brand">{{ $t('brand.lg') }}</h2>
+        </div>
+        <div class="login-body">
+          <h3 class="login-title">{{ $t('login.title') }}</h3>
+          <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmitHandle()" status-icon>
+            <el-form-item>
+              <el-select v-model="$i18n.locale" class="w-percent-100">
+                <el-option v-for="(val, key) in $i18n.messages" :key="key" :label="val._lang" :value="key"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item prop="username">
+              <el-input v-model="dataForm.username" :placeholder="$t('login.username')">
+                <span slot="prefix" class="el-input__icon">
+                  <svg class="icon-svg" aria-hidden="true"><use xlink:href="#icon-user"></use></svg>
+                </span>
+              </el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+              <el-input v-model="dataForm.password" type="password" :placeholder="$t('login.password')">
+                <span slot="prefix" class="el-input__icon">
+                  <svg class="icon-svg" aria-hidden="true"><use xlink:href="#icon-lock"></use></svg>
+                </span>
+              </el-input>
+            </el-form-item>
+            <el-form-item prop="captcha">
+              <el-row :gutter="20">
+                <el-col :span="14">
+                  <el-input v-model="dataForm.captcha" :placeholder="$t('login.captcha')">
+                    <span slot="prefix" class="el-input__icon">
+                      <svg class="icon-svg" aria-hidden="true"><use xlink:href="#icon-safetycertificate"></use></svg>
+                    </span>
+                  </el-input>
+                </el-col>
+                <el-col :span="10" class="login-captcha">
+                  <img :src="captchaPath" @click="getCaptcha()">
+                </el-col>
+              </el-row>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="dataFormSubmitHandle()" class="w-percent-100">{{ $t('login.title') }}</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+        <div class="login-footer">
+          <p>
+            <a href="https://demo.renren.io/security-enterprise-general" target="_blank">{{ $t('login.demo') }}</a>
+          </p>
+          <p><a href="https://www.renren.io/" target="_blank">{{ $t('login.copyright') }}</a>2018 © renren.io</p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="${request.contextPath}/statics/plugins/vue-2.5.17/vue.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/index.js"></script>
+  <!-- 插件 -->
+  <script src="${request.contextPath}/statics/plugins/es6-promise-4.2.4/es6-promise.auto.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/axios-0.18.0/axios.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/js-cookie-2.2.0/js-cookie.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/lodash-4.17.10/lodash.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/qs-6.5.2/qs.min.js"></script>
+  <!-- 国际化 -->
+  <script src="${request.contextPath}/statics/plugins/vue-i18n-8.1.0/vue-i18n.min.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/zh-CN.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/zh-TW.js"></script>
+  <script src="${request.contextPath}/statics/plugins/element-2.7.2/locale/en.js"></script>
+  <script src="${request.contextPath}/statics/i18n/zh-CN.js"></script>
+  <script src="${request.contextPath}/statics/i18n/zh-TW.js"></script>
+  <script src="${request.contextPath}/statics/i18n/en-US.js"></script>
+  <script src="${request.contextPath}/statics/i18n/index.js"></script>
+  <!-- 业务 -->
+  <script src="${request.contextPath}/statics/icons/iconfont.js"></script>
+  <script src="${request.contextPath}/statics/js/common.js"></script>
+  <script src="${request.contextPath}/statics/js/login.js"></script>
+</body>
+</html>
